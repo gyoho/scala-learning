@@ -1,5 +1,18 @@
 // Link: https://stackoverflow.com/questions/34001558/better-way-of-compressing-a-string
 
+// Usage of back tick
+// The convention is that lower case names refer to match variables, whereas upper case names refer to identifiers from the outer scope.
+// If you need to refer to the originally defined val b, you need to use backticks as a marker.
+val A = "a"
+val b = "b"
+
+"a" match {
+  case `b` => println("b")
+  case A => println("A")
+}
+
+// -----------------------------------------------------------------
+
 /*
   Input: abcaaabbb
   Output: abca3b3
