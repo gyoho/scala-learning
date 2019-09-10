@@ -1,31 +1,32 @@
 class  Animal
 class Dog extends Animal
 class Puppy extends Dog
-class M extends Puppy
+class Haru extends Puppy
 
 
-object AnimalCarerUpperBound{
+object AnimalCarerUpperBound {
   def display [T <: Dog](t: T) = t
 }
 
-object AnimalCarerLowerBound{
+object AnimalCarerLowerBound {
   def display [T >: Dog](t: T) = t
 }
 
 val animal = new Animal
 val dog = new Dog
 val puppy = new Puppy
-val m = new M
+val haru = new Haru
 
 
-//AnimalCarerUpperBound.display(animal)
-AnimalCarerUpperBound.display(puppy)
+//AnimalCarerUpperBound.display(animal) compilation error
 AnimalCarerUpperBound.display(dog)
-AnimalCarerUpperBound.display(m)
+AnimalCarerUpperBound.display(puppy)
+AnimalCarerUpperBound.display(haru)
 
 
 // Any is all super class (which String and Puppy extends)
 AnimalCarerLowerBound.display(animal)
 AnimalCarerLowerBound.display("kkkdd")
 AnimalCarerLowerBound.display(dog)
-AnimalCarerLowerBound.display(puppy)
+AnimalCarerLowerBound.display(puppy) // type casting to Dog
+AnimalCarerLowerBound.display(haru)  // type casting to Dog

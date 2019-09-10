@@ -35,9 +35,7 @@ val animalEq = new Eq[Animal] {
 
 
 val c = Cat(12)
-
 val d = Dog(2)
-
 animalEq.isEqual(c, d)
 
 def filter[A](l: List[A], a: A, eq: Eq[A]): List[A] = l.filter(eq.isEqual(a, _))

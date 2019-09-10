@@ -28,3 +28,4 @@ AnimalCarerUpperBound.display(puppy)
 
 AnimalCarerLowerBound.display(animal)
 AnimalCarerLowerBound.display(dog)
+AnimalCarerLowerBound.display(puppy)

@@ -1,17 +1,15 @@
-object Command {
-  var history: Seq[() => Unit] = Seq.empty
+import scala.util.Try
 
-  def invoke(command: => Unit): Unit = {
-    command
+object Command {
+  var history: Seq[() => Any] = Seq.empty
+
+  def invoke[A](command: => A): Try[A] = {
     history :+= command _
+    Try(command)
   }
 }
 
-Command.invoke(println("foo"))
-
-Command.invoke {
-  println("bar")
-  println("dal")
-}
+Command.invoke("foo")
+Command.invoke(3)
 
 println(Command.history)

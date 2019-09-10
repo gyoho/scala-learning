@@ -3,7 +3,7 @@ trait OutputStream {
   def write(b: Array[Byte])
 }
 
-class FileOutputStream(path: String) extends OutputStream { /* ... */ }
+class FileOutputStream(path: String) extends OutputStream
 
 trait Buffering extends OutputStream {
   abstract override def write(b: Byte) {

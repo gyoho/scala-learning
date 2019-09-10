@@ -9,12 +9,4 @@ object Rational {
 }
 
 
-object Example {
-  def example(): Unit =
-      assert(List(0, -9, 4).sorted == List(-9, 0, 4))
-    assert(List(Rational(1, 2), Rational(3, 4), Rational(1, 3)).sorted == List(Rational(1, 3), Rational(1, 2), Rational(3, 4)))
-}
-
-Example.example()
-
-//implicit val minOrdering: Ordering[Int] = Ordering.fromLessThan[Int](_ < _)
+assert(List(Rational(1, 2), Rational(3, 4), Rational(1, 3)).sorted == List(Rational(1, 3), Rational(1, 2), Rational(3, 4)))

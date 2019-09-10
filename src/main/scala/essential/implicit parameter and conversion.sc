@@ -12,12 +12,12 @@ multiply(4)(10) // 40
 multiply(3)
 // error: could not find implicit value for parameter factor: Int
 
-implicit val y: Int = 11
+implicit val y: Int = 10
 
 multiply(3) // 30
 multiply(4) // 40
 
-//implicit val x: Int = 10
+//implicit val x: Int = 11
 // the implicit value must resolve to a single value to avoid conflict
 
 multiply(3)
@@ -44,7 +44,7 @@ alert(7) // equivalent to: alert(intToString(7))
 // error: value chat is not a member of Int
 
 class LoquaciousInt(x: Int) {
-  def chat(): Unit = for(i <- 1 to x) println("Hi!")
+  def chat(): Unit = for(_ <- 1 to x) println("Hi!")
 }
 
 implicit def intToLoquaciousInt(x: Int): LoquaciousInt = new LoquaciousInt(x)
@@ -64,7 +64,7 @@ implicit def intToLoquaciousInt(x: Int): LoquaciousInt = new LoquaciousInt(x)
 // from the type of its constructor argument to the type of the class
 
 implicit class LoquaciousIntShorthand(x: Int) {
-  def chat(): Unit = for(i <- 1 to x) println("Hi!")
+  def chat(): Unit = for(_ <- 1 to x) println("Hi!")
 }
 
 3.chat  // equivalent to: new LoquaciousIntShorthand(3).chat
