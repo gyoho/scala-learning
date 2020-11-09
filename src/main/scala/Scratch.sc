@@ -62,3 +62,20 @@ def flatten(l: List[Any]): List[Any] = l flatMap {
     println(s"val: $h, after conversion: ${List(h)}")
     List(h)
 }
+
+import scala.concurrent.{ExecutionContext, Future}
+import scala.util.{Failure, Success, Try}
+
+val f = Future(1)(ExecutionContext.Implicits.global)
+
+def p(i: Int): PartialFunction[Try[Any], Unit] = {
+  case Success(_) => println(i)
+  case Failure(_) => println(i * 3)
+}
+
+f.onComplete {
+  println("complete")
+//  case Success(_) => println(2)
+//  case Failure(_) => println(2 * 3)
+  p(3)
+}(ExecutionContext.Implicits.global)

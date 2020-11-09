@@ -1,3 +1,8 @@
+/**
+  * Function: function value extends Function1 trait
+  * (x, y) => f(x, y)
+  */
+
 def lift[A, B](f: A => B): Option[A] => Option[B] = (a: Option[A]) => a map f
 def liftTypeOmit[A, B](f: A => B): Option[A] => Option[B] = a => a map f  // infers from the return type
 def liftWildCard[A, B](f: A => B): Option[A] => Option[B] = _ map f

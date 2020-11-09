@@ -1,3 +1,34 @@
+/**
+  * --- Class ---
+  * class A(val a: String) {
+  *   println("instantiated")
+  *   def ...
+  * }
+  *
+  * val a = new A("hello")
+  * >> instantiated
+  *
+  * - class body is a primary constructor
+  * - constructor is called when instantiating the class
+  */
+
+/**
+  * -- Companion Object --
+  *
+  * object Hello {
+  *   print("instantiated Hello, ")
+  *   def hi = println("hi")
+  * }
+  *
+  * Hello.hi --> "instantiated Hello, hi" (1st time)
+  * Hello.hi --> "hi" (2nd time)
+  *
+  * - singleton object is instantiated the 1st time it gets accessed [lazy]
+  *
+  * ** Companion object can access private variables in its companion class
+  * ** other way is true too
+  */
+
 class Animal(var name: String, var age: Int) {
   // auxiliary constructor
   def this(name: String) = this(name, 0)
