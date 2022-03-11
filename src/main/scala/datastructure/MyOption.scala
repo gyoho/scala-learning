@@ -1,4 +1,4 @@
-package option
+package datastructure
 
 // structural recursion using Polymorphism
 
